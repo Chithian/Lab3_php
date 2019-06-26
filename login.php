@@ -1,3 +1,10 @@
+<?php 
+	session_start();
+	if (isset($_SESSION['email'])&&$_SESSION['email']) {
+		header("Location:Detail.php");
+	}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,15 +28,16 @@
   <link rel="stylesheet" type="text/css" href="lab3.css">
 
 </head>
-<body class="bg">
-<div class="jumbotron"  style="width: 50%;margin-left: 400px;margin-top:120px">
-  <div class="container">
+<body id="your-element-selector" style="background-position: cover; margin-top: 40px;padding: 25px">
   
-  <form action="" method="post" class="was-validated">
+  <div class="jumbotron"  style="width: 50%;margin-left: 340px;height: 570px">
+    <div class="container">
+  
+  <form action="login_PHP.php" method="post" class="was-validated">
     <div class="form-group">
-      <i class="fab fa-mailchimp" style="font-size: 20px"></i>
-      <label for="uname">Username</label>
-      <input type="text" class="form-control" id="uname" placeholder="Enter username" name="gmail" required>
+      <i class="fas fa-user-secret" style="font-size: 20px"></i>
+      <label for="uname">Gmail</label>
+      <input type="text" class="form-control" id="uname" placeholder="Enter gmail" name="gmail" required>
       <div class="valid-feedback">Valid.</div>
       <div class="invalid-feedback">Please fill out this field.</div>
     </div>
@@ -57,7 +65,31 @@
       </div>
 
     <button type="submit" style="text-align: center;" class="btn btn-primary">Submit</button>
+
+    <?php 
+    	if (empty($_SESSION["error"])) {
+    		echo " ";
+    		# code...
+    	}else{
+    		echo $_SESSION["error"];
+    	}
+
+    ?>
+
   </form>
 </div>
+ <!-- Animation JS  -->
+  <div id="your-element-selector" style="height: 200px;"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/100/three.min.js"></script>
+<script src="https://www.vantajs.com/dist/vanta.waves.min.js"></script>
+<script src="three.r92.min.js"></script>
+<script src="vanta.waves.min.js"></script>
+<script>
+VANTA.WAVES({
+  el: "#your-element-selector"
+})
+// VANTA.BIRDS('#your-element-selector')
+</script>
 </body>
 </html>

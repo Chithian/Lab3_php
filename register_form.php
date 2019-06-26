@@ -37,8 +37,8 @@
  	?>
 
 <div class="alert alert-success" role="alert">
- 		 This is  success alert—check it out in the filetext.txt !
-	</div>
+  A Register form success ! Enjoy your Hello World !!!
+</div>
 
 </body>
 </html>

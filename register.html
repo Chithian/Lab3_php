@@ -18,13 +18,13 @@
   <link rel="stylesheet" type="text/css" href="lab3.css">
 
 </head>
-<body class="bg">
+<body id="NET" style="margin-top: 0px ">
 
   <div class="container">
 
-<div class="card bg-light jumbotron">
-<article class="card-body mx-auto" style="max-width: 400px;">
-	<h4 class="text-primary card-title mt-3 text-center">Create Account</h4>
+<div class="card bg-light jumbotron" style="width: 50%">
+<article class="card-body mx-auto" style="max-width: 900px;">
+	<h2 class="text-primary card-title mt-3 text-center">Create Account</h2>
 	
 	<p class="text-center">Get started with your free account</p>
 	
@@ -32,56 +32,80 @@
 	<form action="register_form.php" method="post"  >
 	<div class="form-group input-group">
 		<div class="input-group-prepend">
-		    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+		    <span class="input-group-text"> <i class="fa fa-user" style="color: orange"></i> </span>
 		 </div>
-        <input class="form-control" placeholder="Full name" name="Fname" type="text">
+        <input class="form-control" placeholder="Full name" name="Fname" type="text" required>
     </div> <!-- form-group// -->
     <div class="form-group input-group">
     	<div class="input-group-prepend">
-		    <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+		    <span class="input-group-text"> <i class="fa fa-envelope" style="color: red"></i> </span>
 		 </div>
-        <input  class="form-control" placeholder="Email address" name="gmail" type="email">
+        <input  class="form-control" placeholder="Email address" name="gmail" type="email" required>
     </div> <!-- form-group// -->
     <div class="form-group input-group">
     	<div class="input-group-prepend">
 		    <span class="input-group-text"> <i class="fas fa-venus-mars"></i> </span>
 		</div>
-		<select class="form-control" name="gender">
+		<select class="form-control" name="gender" required>
 			<option selected=""> Gender</option>
 			<option>Male</option>
 			<option>Female</option>
+			<option>Other </option>
 			
 		</select>
 	</div> 
     <div class="form-group input-group">
     	<div class="input-group-prepend">
-		    <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
+		    <span class="input-group-text"> <i class="fa fa-phone" style="color: blue"></i> </span>
 		</div>
 		
-    	<input class="form-control" placeholder="Phone number" name="phone" type="text">
+    	<input class="form-control" placeholder="Phone number" name="phone" type="text" required>
     </div> <!-- form-group// -->
     
     <div class="form-group input-group">
     	<div class="input-group-prepend">
-		    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+		    <span class="input-group-text"> <i class="fa fa-lock" style="color: grey"></i> </span>
 		</div>
-        <input class="form-control" placeholder="Create password" name="password" type="password">
+        <input class="form-control" placeholder="Create password" name="password" type="password" id="password" required>
     </div> <!-- form-group// -->
     <div class="form-group input-group">
     	<div class="input-group-prepend">
 		    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
 		</div>
-        <input class="form-control" placeholder="Comfired password" type="password">
+        <input class="form-control" placeholder="Comfired password" type="password" id="confirm_password" required>
     </div> <!-- form-group// -->                                      
     <div class="form-group">
         <button type="submit" class="btn btn-success btn-block"> Create Account  </button>
     </div> <!-- form-group// -->      
-    <p class="text-center">Have an account? <a href="http://localhost:8888/lab3/login.html">Log In</a> </p>                                                                 
+    <p class="text-center">Have an account? <a href="http://localhost:8888/lab3/login.php">Login </a></p>                                                                 
 </form>
 </article>
 </div> <!-- card.// -->
+<script type="text/javascript">
+	var password = document.getElementById("password")
+  , confirm_password = document.getElementById("confirm_password");
 
+function validatePassword(){
+  if(password.value != confirm_password.value) {
+    confirm_password.setCustomValidity("Passwords Don't Match");
+  } else {
+    confirm_password.setCustomValidity('');
+  }
+}
 
+password.onchange = validatePassword;
+confirm_password.onkeyup = validatePassword;
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/100/three.min.js"></script>
+<script src="https://www.vantajs.com/dist/vanta.net.min.js"></script>
+<script src="three.r92.min.js"></script>
+<script src="vanta.net.min.js"></script>
+<script>
+VANTA.NET({
+  el: "#NET"
+})
+</script>
 
 </article>
 </div>

@@ -1,15 +1,13 @@
 
-.bg{
-	background-image: url('https://mdbootstrap.com/img/Photos/Others/images/91.jpg');
+.body{
 	background-position:center;
 	background-repeat: no-repeat;
 	background-size: cover;
-	height:760px;
-	
+	/*height:70px;*/	
 }
-
 .jumbotron{
-	opacity: 0.8;
+    width: 50%;
+	opacity: 0.7;
 }
 
 //register
@@ -35,11 +33,11 @@
     z-index: 1;
 }
 
-.btn-facebook {
+/*.btn-facebook {
     background-color: #405D9D;
     color: #fff;
 }
 .btn-twitter {
     background-color: #42AEEC;
     color: #fff;
-}
+}*/
